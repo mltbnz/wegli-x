@@ -1,3 +1,3 @@
 # wegli
 
-An experiment to implement a client for https://www.weg.li 
+An experiment to implement a crossplatorm client with flutter for https://www.weg.li 
