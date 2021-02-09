@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wegli/models/report.dart';
 import 'package:wegli/screens/Home.dart';
+import 'package:wegli/screens/report.dart';
 
 class WegliApp extends StatelessWidget {
-
   @override
   final appName = 'wegli';
   Widget build(BuildContext context) {
@@ -18,6 +18,7 @@ class WegliApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => HomeScreen(),
+          '/report': (context) => ReportScreen(),
         },
       ),
     );
