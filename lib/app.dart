@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wegli/models/report.dart';
 import 'package:wegli/screens/Home.dart';
+import 'package:wegli/screens/components/themes.dart';
 import 'package:wegli/screens/report.dart';
 
 class WegliApp extends StatelessWidget {
@@ -14,6 +15,8 @@ class WegliApp extends StatelessWidget {
         Provider(create: (context) => Report()),
       ],
       child: MaterialApp(
+        theme: lightTheme,
+        darkTheme: darkTheme,
         title: appName,
         initialRoute: '/',
         routes: {
