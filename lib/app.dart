@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wegli/models/report.dart';
+import 'package:wegli/provider/pictures.dart';
 import 'package:wegli/screens/Home.dart';
-import 'package:wegli/screens/components/themes.dart';
+import 'package:wegli/screens/widgets/themes.dart';
 import 'package:wegli/screens/report.dart';
 
 class WegliApp extends StatelessWidget {
@@ -12,6 +13,7 @@ class WegliApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider<Pictures>(create: (_) => Pictures()),
         Provider(create: (context) => Report()),
       ],
       child: MaterialApp(
@@ -21,7 +23,7 @@ class WegliApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => HomeScreen(),
-          '/report': (context) => ReportScreen(),
+          '/report': (context) => ReportScreen()
         },
       ),
     );
