@@ -4,7 +4,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wegli/provider/pictures.dart';
+import 'package:wegli/provider/report.dart';
 import 'package:wegli/screens/widgets/stepContainer.dart';
 
 class ImageStep extends StatefulWidget {
@@ -22,13 +22,13 @@ class PickImageState extends State<ImageStep> {
     return image;
   }
 
-  Widget buildGridView(List<Asset> assets) {
-    var hasSelectedImages = assets.isNotEmpty;
-    var assetSize = assets.length;
+  Widget _buildGridView(List<Asset> assets) {
+    var hasSelectedImages = assets?.isNotEmpty ?? false;
+    var assetSize = assets?.length ?? 1;
     return hasSelectedImages
         ? Expanded(
             child: SizedBox(
-                height: hasSelectedImages ? 100 : 0,
+                height: 50,
                 child: GridView.builder(
                   itemCount: assetSize,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -82,7 +82,7 @@ class PickImageState extends State<ImageStep> {
     });
 
     _storeImage() {
-      Provider.of<Pictures>(context, listen: false).storeImage(images);
+      Provider.of<Report>(context, listen: false).storeImage(images);
     }
 
     _storeImage();
@@ -90,8 +90,7 @@ class PickImageState extends State<ImageStep> {
 
   @override
   Widget build(BuildContext context) {
-    final imagesData = Provider.of<Pictures>(context);
-    final images = imagesData.items;
+    final List<Asset> images = context.select((Report report) => report.images);
     return StepContainer(
         title: 'Fotos',
         child: Column(
@@ -124,7 +123,7 @@ class PickImageState extends State<ImageStep> {
               ],
             ),
             Container(
-              child: SizedBox(height: 200, child: buildGridView(images)),
+              child: SizedBox(height: 120, child: _buildGridView(images)),
             )
           ],
         ));

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wegli/models/report.dart';
+import 'package:wegli/provider/report.dart';
 import 'package:wegli/provider/pictures.dart';
 import 'package:wegli/screens/Home.dart';
 import 'package:wegli/screens/widgets/themes.dart';
@@ -14,7 +14,7 @@ class WegliApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<Pictures>(create: (_) => Pictures()),
-        Provider(create: (context) => Report()),
+        ChangeNotifierProvider(create: (context) => Report()),
       ],
       child: MaterialApp(
         theme: lightTheme,
