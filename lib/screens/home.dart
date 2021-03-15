@@ -22,7 +22,8 @@ class HomeScreen extends StatelessWidget {
           );
         },
         child: Icon(Icons.add),
-        backgroundColor: Colors.black,
+        backgroundColor: Theme.of(context).accentColor,
+        foregroundColor: Theme.of(context).primaryColor,
       ),
     );
   }

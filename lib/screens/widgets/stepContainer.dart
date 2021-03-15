@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wegli/screens/components/decortations.dart';
+import 'package:wegli/screens/widgets/decortations.dart';
 import 'package:flutter/foundation.dart';
-import 'package:meta/meta.dart';
 
 class StepContainer extends StatelessWidget {
   StepContainer(
@@ -43,11 +42,12 @@ class StepContainer extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              Icon(
-                isExpanded
-                    ? CupertinoIcons.chevron_down_circle
-                    : CupertinoIcons.chevron_up_circle,
-              )
+              IconButton(
+                  splashRadius: 24.0,
+                  icon: isExpanded
+                      ? Icon(CupertinoIcons.chevron_down_circle)
+                      : Icon(CupertinoIcons.chevron_up_circle),
+                  onPressed: () {})
             ],
           ),
           child
